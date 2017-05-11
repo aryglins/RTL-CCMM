@@ -1,0 +1,135 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/questasim64_10.2c/examples
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+!s110 1494543254
+VnklBU7B7H@0oP^joK6lah1
+Z1 04 9 4 work cache_tb2 fast 0
+=1-f0761ce25c94-5914eb96-20-2fb0
+Z2 o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+Z3 OL;O;10.2c;57
+T_opt1
+V_mUzSKEoOPCd4IQELefb?3
+04 8 4 work cache_tb fast 0
+=1-f0761ce25c94-5914b3fb-34e-359c
+R2
+n@_opt1
+R3
+Z4 dC:/questasim64_10.2c/examples
+!s110 1494529019
+T_opt2
+VBT5_3ch;cSkYGcfK[_BcV1
+R1
+=1-f0761ce25c94-5914be4d-355-4128
+R2
+n@_opt2
+R3
+R4
+!s110 1494531661
+vcache
+Z5 DXx6 sv_std 3 std 0 22 `a<MJET1=lN@jzbA7kHm;1
+INg`X_DPXaY64@CPC^Z0lN0
+Z6 V`JN@9S9cnhjKRR_L]QIcM3
+S1
+Z7 dC:/Workspace/TG/cache_mem_sv
+w1494543218
+8C:/Workspace/TG/cache_mem_sv/cache.sv
+FC:/Workspace/TG/cache_mem_sv/cache.sv
+L0 7
+Z8 OL;L;10.2c;57
+r1
+31
+Z9 o-work work -sv -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s105 cache_sv_unit
+!s90 -reportprogress|300|-work|work|-vopt|-sv|C:/Workspace/TG/cache_mem_sv/cache.sv|
+!s110 1494543236
+!i10b 1
+!s100 ^P0W<?o1^Ao:DFCI4V[5n3
+!s85 0
+!s108 1494543236.146000
+!s107 C:/Workspace/TG/cache_mem_sv/cache.sv|
+!i111 0
+Tcache_o
+Vc`8:BcBmKRbf4gFNY3dkI2
+04 5 4 work cache fast 0
+ncache_o
+R3
+R4
+!s110 1494110675
+vcache_tb
+R5
+IHNfGiB2ok1KcUGz5b8HP_0
+R6
+S1
+R7
+w1494475587
+Z10 8C:/Workspace/TG/cache_mem_sv/cache_tb2.sv
+Z11 FC:/Workspace/TG/cache_mem_sv/cache_tb2.sv
+L0 7
+R8
+r1
+31
+R9
+Z12 !s105 cache_tb2_sv_unit
+Z13 !s90 -reportprogress|300|-work|work|-vopt|-sv|C:/Workspace/TG/cache_mem_sv/cache_tb2.sv|
+Z14 !s107 C:/Workspace/TG/cache_mem_sv/cache_tb2.sv|
+!s110 1494475598
+!s100 Ta788ki=9RGUWZa[Q;Ram1
+!s108 1494475598.776000
+!i10b 1
+!s85 0
+!i111 0
+vcache_tb2
+R5
+I>2NOGX`H^TH5;>g`R[fSB2
+R6
+R12
+S1
+R7
+w1494542023
+R10
+R11
+L0 7
+R8
+r1
+31
+R13
+R9
+R14
+!s110 1494542028
+!s100 ]iXAKBz4TDPDL_G>=6YQE3
+!s108 1494542028.214000
+!i10b 1
+!s85 0
+!i111 0
+Xclog2_sv_unit
+R5
+IngcIKA@0?5f5UlW@@B3nS2
+VngcIKA@0?5f5UlW@@B3nS2
+S1
+R7
+w1493948968
+8C:\Workspace\TG\cache_mem_sv\clog2.sv
+FC:\Workspace\TG\cache_mem_sv\clog2.sv
+L0 1
+R8
+r1
+31
+R9
+!s100 <Ag?48@f<U`AGAzN8K]<I3
+!s90 -reportprogress|300|-work|work|-vopt|-sv|C:\Workspace\TG\cache_mem_sv\clog2.sv|
+!s110 1493951173
+!s108 1493951173.182000
+!s107 C:\Workspace\TG\cache_mem_sv\clog2.sv|
+!i10b 1
+!i103 1
+!s85 0
+!i111 0
