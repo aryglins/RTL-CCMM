@@ -1,4 +1,0 @@
-// memory data file (do not edit the following line - required for mem load use)
-// instance=/cache_tb2/cache1/sets(0).lines(2).data(0)
-// format=mti addressradix=h dataradix=h version=1.0 wordsperline=8
-0: 00000099 
