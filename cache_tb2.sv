@@ -1,9 +1,12 @@
 /************************************
 *
-*
-*
-*
 */
+`include "cache_structs_def.sv"
+//=================================================
+// Import the Packages
+//=================================================
+import cache_structs_def::*;
+
 module cache_tb2;
 timeunit 1ns;
 timeprecision 100ps;
@@ -14,61 +17,84 @@ timeprecision 100ps;
 	localparam BLOCK_SIZE 		= 4;		//Block size in bytes
 	localparam NUMBER_OF_SETS 	= 1;		//Quantity of sets
 	
-	bit clk = 0;
-	realtime clk_period = 40ns;
-	logic [ADDR_WIDTH-1:0] addr;
-	
-	wire [DATA_WIDTH-1:0] data_bus;	// Data bi-directional
-	reg [DATA_WIDTH-1:0] data_reg;	// Data bi-directional
-	logic cs;					 	// Chip Select
-	logic we;						// Write Enable/Read Enable
-	logic re;						// Write Enable/Read Enable
+	logic clk;
+	logic rst;
 	logic hit;
-	logic rpe;
+	realtime clk_period = 40ns;
+	
+	processor_request_t proc_req;
+	memory_request_t mem_req;
+	memory_response_t mem_res; 
+	logic proc_req_dr;
+	wire [DATA_WIDTH-1:0] proc_req_data;
+	logic [DATA_WIDTH-1:0] data_reg;
+	
 	integer rand1, rand2;
 	// Data hit
 	
-	reg [DATA_WIDTH-1:0] data_to_save[6] = {'h12, 'h0a, 'h99, 'h55, 'ha5, 'hbb};
+	logic [DATA_WIDTH-1:0] data_to_save[6] = {'h12, 'h0a, 'h99, 'h55, 'ha5, 'hbb};
 	
-	reg [ADDR_WIDTH-1:0] addr_to_save[3] = {'hff, 'haa, 'h20};
+	logic [ADDR_WIDTH-1:0] op_addr[3] = {'hff, 'haa, 'h20};
 	
+	initial clk = 0;
 	always begin 
 		#(clk_period/2)  clk=~clk;
 	end
+	
+	logic cs, rw;
+	assign proc_req.cs = cs;
+	assign proc_req.rw = rw;
 		
-	assign data_bus = (cs == 'b1 && (we == 'b1 || rpe == 'b1) && re == 'b0) ? data_reg : 'Z;
+	assign proc_req_data = (cs == 'b1 && rw == 'b1) ? data_reg : 'Z;
 	
 	initial begin
-		$monitor("%t ns MONITOR	addr=%h data_bus=%h cs=%b we=%b re=%b rpe=%b hit=%b",$time/10, addr,data_bus,cs,we,re,rpe,hit);
-			for (int i=0; i<4; i=i+1) begin
-				for (int j=8; j<13; j=j+1) begin
-					rand1 = $urandom_range(0,5); 
-					rand2 = $urandom_range(0,2); 
-					data_reg = data_to_save[rand1];
-					addr = addr_to_save[rand2];
-					{cs,re,we,rpe} = j;
+		rst = 1;
+		#clk_period;
+		rst = 0;
+		$monitor("%t ns MONITOR	addr=%h data_bus=%h cs=%b rw=%b hit=%b",$time/10, proc_req.addr,proc_req_data,cs,rw,hit);
+			for (int i=0; i<=128; i=i+32) begin
+				rand1 = $urandom_range(0,5); 
+				rand2 = $urandom_range(0,2); 
+				data_reg = 32'hbeefdead;
+				proc_req.addr = i;
+				cs = 1;
+				rw = 1;
+				#clk_period;
+				while(proc_req_dr == 'b0) begin
 					#clk_period;
 				end
+				#clk_period;
 			end
 	end
 	
-	cache  #(		
-		.ADDR_WIDTH(ADDR_WIDTH)	,
-		.DATA_WIDTH(DATA_WIDTH)	,			//Bit width of data
-		.CACHE_SIZE(CACHE_SIZE)	,			//Cache size in bytes
-		.BLOCK_SIZE(BLOCK_SIZE)	,			//Block size in bytes
-		.NUMBER_OF_SETS(NUMBER_OF_SETS)		//Quantity of sets
-	) cache1
+	cache cache1
 	(
-		.clk	(clk)      	, // Clock Input
-		.addr	(addr)     	, // Address Input
-		.data	(data_bus)  , // Data bi-directional
-		.cs		(cs)       	, // Chip Select
-		.we		(we)		, // Write Enable/Read Enable
-		.re	   	(re)		, // Write Enable/Read Enable
-		.hit	(hit)		, // Data hit
-		.rpe	(rpe)
-	);
+		.rst(rst),					// Reset Input
+		.clk(clk), 				// Clock Input
+		.proc_req(proc_req),			// processor request
 		
-endmodule // End of Module ram_sp_sr_sws
-
+		/// PROCESSOR <-> CACHE
+		.proc_req_data(proc_req_data), 			// Processor request bi-directional data
+		
+		/// PROCESSOR <- CACHE
+		.proc_req_dr(proc_req_dr)	,	// Processor request data ready
+		
+		/// CACHE -> MEMORY
+		.mem_req(mem_req), 			// memory request
+		
+		/// CACHE <- MEMORY
+		.mem_res(mem_res),
+		
+		.hit_out(hit)
+	);
+	
+	mem_ctrl mc
+	(
+		.rst(rst),					// Reset Input
+		.clk(clk), 
+		.mem_req(mem_req),			// memory request
+		.mem_res(mem_res)
+	);
+	
+// End of Module ram_sp_sr_sws1	
+endmodule 

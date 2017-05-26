@@ -8,8 +8,8 @@ module cache_tb;
 timeunit 1ns;
 timeprecision 100ps;
 
-	localparam ADDR_WIDTH 		= 32;		//Bit width of address
-	localparam DATA_WIDTH 		= 32;		//Bit width of data
+	localparam ADDR_WIDTH 		= 32;		//
+	localparam DATA_WIDTH 		= 32;		//BIT WIDTH OF DATA BUS
 	localparam CACHE_SIZE 		= 32;		//Cache size in bytes
 	localparam BLOCK_SIZE 		= 4;		//Block size in bytes
 	localparam BYTE_SIZE		= 8;		//Size of a byte
