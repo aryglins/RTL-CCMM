@@ -67,9 +67,6 @@ timeprecision 100ps;
 			
 			proc_req.addr = addr_buf[DATA_WIDTH-1 + 2:2];
 			
-			if(addr_buf == 'h00000fbc && proc_req.data == 'h00005ebc) begin
-				$stop;
-			end
 			
 			#clk_period;
 			
@@ -79,12 +76,15 @@ timeprecision 100ps;
 		
 		end
 		
-		cs = 'b0;
+		//$stop;
+		cs = 'b1;
 		proc_req.flush = 'b1;
-		while(proc_res.flush_complete == 'b0) begin
+		#clk_period;
+		while(proc_res.hold_cpu == 'b1) begin
 			#clk_period;
 		end
 		proc_req.flush = 'b0;
+		cs = 'b0;
 		$stop;
 	end
 	

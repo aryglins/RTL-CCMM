@@ -131,7 +131,6 @@ module cache
 			rep_buf.addr <= 'b0;
 			line_count <= 'd0;
 			set_count <= 'd0;
-			proc_res.flush_complete <= 'b0;
 			for(int i=0; i < LINES_PER_SET; i=i+1) begin
 				set_to_replace[i] <= 'd0;
 			end
@@ -144,7 +143,6 @@ module cache
 						tag_buf <= addr_tag;
 						line_buf <= addr_line;
 						offset_buf <= addr_offset;
-						proc_res.flush_complete <= 'b0;
 					end
 					else if (proc_req.flush == 'b1) begin
 						line_count <= 'b0;
@@ -199,7 +197,6 @@ module cache
 					else begin
 						line_count <= 'd0;
 						set_count <= set_count + 'd0;
-						proc_res.flush_complete <= 'b1;
 					end
 				end		
 			endcase
@@ -216,7 +213,7 @@ module cache
 					if(miss == 'b1) begin				
 						state <= def_set_replaced;
 					end
-					else if (proc_req.flush == 'b1) begin
+					else if (proc_valid_flush == 'b1) begin
 						state <= flush_op;
 						line_count <= 'b0;
 					end
@@ -375,7 +372,6 @@ module cache
 			end
 			
 			flush_op: begin
-				proc_res.hold_cpu = 'b1;
 				read_data = 'b0;
 				write_data = 'b0;
 				write_cache = 'b0;
@@ -384,7 +380,13 @@ module cache
 				mem_req.addr = 'b0;
 				for(int i = 0; i < BLOCK_SIZE; i = i + 1) begin
 					mem_req.data[i] = 'b0;
-				end		
+				end
+				if(set_count < NUMBER_OF_SETS) begin
+					proc_res.hold_cpu = 'b1;
+				end
+				else begin
+					proc_res.hold_cpu = 'b0;
+				end
 			end
 			
 			rw_op : begin

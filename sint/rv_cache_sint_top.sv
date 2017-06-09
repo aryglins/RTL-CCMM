@@ -9,13 +9,17 @@ import cache_structs_def::*;
 module rv_cache_sint_top 	
 (
 	input wire				rst,					// Reset Input
-	
-	input wire              clk						// Clock Input
+	input wire              clk,					// Clock Input
+	output logic			fl_complete
 );
 	
 	logic [15:0] inst_addr;
 	logic [67:0] inst;
-	logic increment_inst;
+	
+	logic [3:0] opCode;
+	logic [29:0] addr;
+	logic [31:0]  data;
+	logic readInst;
 	
 	memory_request_t mem_req;
 	memory_response_t mem_res;
@@ -28,7 +32,7 @@ module rv_cache_sint_top
 	
 	wire [DATA_WIDTH-1:0] 	proc_res_data;
 	
-	typedef enum {fetch_inst, load_op, store_op, flush_op, idle} fake_processor_st;
+	typedef enum {fetch_inst, dec_inst, load_op, store_op, flush_op, idle} fake_processor_st;
 	
 	fake_processor_st current_st;
 	fake_processor_st next_st;
@@ -38,29 +42,49 @@ module rv_cache_sint_top
 		if(rst) begin
 			inst_addr <= 'b0;
 			current_st <= fetch_inst;
+			data <= 'h0;
+			addr <= 'h0;
+			opCode <= 'h0;
 		end
 		else begin
 			current_st <= next_st;
-			
-			if(increment_inst) begin
-				inst_addr <= inst_addr + 16'd1;
+		
+			if(readInst) begin
+				data <= inst[31:0];
+				addr <= inst[63:34];
+				opCode <= inst[67:64];
 			end
 			
+			case(current_st)
+				fetch_inst: begin
+					inst_addr <= inst_addr + 'd1;
+				end
+			endcase
 		end
 	end
 	
 	always_comb begin
-		case(current_st)
+		proc_req.addr = addr;
+		proc_req.data = data;
+		readInst = 'b0;
 		
+		case(current_st)
 			fetch_inst: begin
-			
-				proc_req.addr = inst[63:32];
+				readInst = 'b1;
 				proc_req.cs = 'b0;
 				proc_req.rw = 'b0;
 				proc_req.flush = 'b0;
-				increment_inst = 0;
+				fl_complete = 0;
+				next_st <= dec_inst;
+			end
+			
+			dec_inst: begin
+				proc_req.cs = 'b0;
+				proc_req.rw = 'b0;
+				proc_req.flush = 'b0;
+				fl_complete = 0;
 				
-				case(inst[67:64])
+				case(opCode)
 					'd0: begin
 						next_st = load_op;
 					end
@@ -70,61 +94,60 @@ module rv_cache_sint_top
 					'd2: begin
 						next_st = flush_op;
 					end
+					default: begin
+						next_st = fetch_inst;
+					end
 				endcase
 			end
 			
 			load_op: begin
-				proc_req.addr = inst[63:32];
 				proc_req.cs = 'b1;
 				proc_req.rw = 'b0;
 				proc_req.flush = 'b0;
-				proc_req.data = inst[31:0];
+				fl_complete = 0;
 				
 				if(proc_res.hold_cpu == 'b1) begin
 					next_st = load_op;
-					increment_inst = 0;
 				end
 				else begin
 					next_st = fetch_inst;
-					increment_inst = 1;
 				end
 			end
 			
 			store_op: begin
-				proc_req.addr = inst[63:32];
 				proc_req.cs = 'b1;
 				proc_req.rw = 'b1;
 				proc_req.flush = 'b0;
-				proc_req.data = inst[31:0];
+				fl_complete = 0;
 				
 				if(proc_res.hold_cpu == 'b1) begin
 					next_st = store_op;
-					increment_inst = 0;
 				end
 				else begin
 					next_st = fetch_inst;
-					increment_inst = 1;
 				end
 			end
 			
 			flush_op: begin
-				proc_req.addr = inst[63:32];
-				proc_req.cs = 'b0;
+				proc_req.cs = 'b1;
 				proc_req.rw = 'b0;
 				proc_req.flush = 'b1;
-				proc_req.data = inst[31:0];
-				
+				fl_complete = 0;
+
 				if(proc_res.hold_cpu == 'b1) begin
 					next_st = flush_op;
-					increment_inst = 0;
 				end
 				else begin
 					next_st = idle;
-					increment_inst = 1;
 				end
 			end
 			
 			idle: begin
+
+				proc_req.cs = 'b0;
+				proc_req.rw = 'b0;
+				proc_req.flush = 'b0;
+				fl_complete = 1;
 				next_st = idle;
 			end
 		

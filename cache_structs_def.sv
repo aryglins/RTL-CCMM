@@ -55,7 +55,6 @@ package cache_structs_def;
 	} processor_request_t;
 	
 	typedef struct {
-		logic					flush_complete;
 		logic					hold_cpu;
 	} processor_response_t;
 	
