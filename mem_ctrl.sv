@@ -1,7 +1,7 @@
 /************************************
 *
 */
-`include "cache_structs_def.sv"
+//`include "cache_structs_def.sv"
 //=================================================
 // Import the Packages
 //=================================================
@@ -19,7 +19,7 @@ module mem_ctrl
 	output memory_response_t		mem_res
 );
 		
-	typedef enum {idle, mem_op} mem_ctrl_state_t;
+	typedef enum {idle, mem_op, save_data} mem_ctrl_state_t;
 	
 	mem_ctrl_state_t state, next_state;
 	
@@ -58,22 +58,17 @@ module mem_ctrl
 					offset_count <= 'b0;
 				end			
 				mem_op: begin
-					if(offset_count < BLOCK_SIZE) begin
-						offset_count <= offset_count + 4;
-						
-						for(int i = 0; i < DATA_WIDTH; i = i + 8) begin
-							mem_res.data[offset_count + i/8] <= data_out[i +: 8];
-						end
-						
-					end
-					else begin
-						offset_count <= offset_count;
-					end
+
+				end
+				save_data: begin
+					mem_res.data[offset_count] <= data_out;	
+					offset_count <= offset_count + 1;		
 				end
 			endcase
 		end
 	end
-	always_comb begin
+	
+	always @* begin
 		case(state)
 			idle: begin
 				addr = 'b0;
@@ -90,11 +85,9 @@ module mem_ctrl
 			mem_op: begin
 				if(offset_count < BLOCK_SIZE) begin
 					addr = (mem_req.addr + offset_count);
-					for(int i = 0; i < DATA_WIDTH; i = i + 8) begin
-						data_in[i +: 8] = mem_req.data[offset_count + i/8];
-					end
+					data_in = mem_req.data[offset_count];
 					wren = mem_req.rw;
-					next_state = mem_op;
+					next_state = save_data;
 				end
 				else begin
 					addr = 'b0;
@@ -103,6 +96,9 @@ module mem_ctrl
 					mem_res.ack = 'b1;
 					next_state = idle;
 				end
+			end
+			save_data: begin
+				next_state = mem_op;
 			end
 		endcase
 	end

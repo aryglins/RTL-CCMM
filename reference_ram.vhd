@@ -39,7 +39,7 @@ USE ieee.std_logic_1164.all;
 LIBRARY altera_mf;
 USE altera_mf.altera_mf_components.all;
 
-ENTITY ram IS
+ENTITY reference_ram IS
 	PORT
 	(
 		address		: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
@@ -48,10 +48,10 @@ ENTITY ram IS
 		wren		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 	);
-END ram;
+END reference_ram;
 
 
-ARCHITECTURE SYN OF ram IS
+ARCHITECTURE SYN OF reference_ram IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (31 DOWNTO 0);
 
@@ -62,7 +62,7 @@ BEGIN
 	GENERIC MAP (
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",
-		init_file => "C:/Workspace/TG/mem_files/ram.mif",
+		init_file => "C:/Workspace/TG/mem_files/ram_output.mif",
 		intended_device_family => "Cyclone IV",
 		lpm_hint => "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=ram",
 		lpm_type => "altsyncram",
