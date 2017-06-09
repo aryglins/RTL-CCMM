@@ -125,7 +125,6 @@ module cache
 			
 	always_ff @(posedge clk or posedge rst) begin
 		if(rst) begin
-			state <= idle;
 			tag_buf <= 'b0;
 			line_buf <= 'b0;
 			offset_buf <= 'b0;
@@ -142,88 +141,51 @@ module cache
 			case(state)
 				idle: begin
 					if(miss == 'b1) begin				
-						state <= def_set_replaced;
 						tag_buf <= addr_tag;
 						line_buf <= addr_line;
 						offset_buf <= addr_offset;
 						proc_res.flush_complete <= 'b0;
 					end
 					else if (proc_req.flush == 'b1) begin
-						state <= flush_op;
 						line_count <= 'b0;
-					end
-					else if (proc_valid_write) begin
-						state <= rw_op;
-					end
-					else if (proc_valid_read) begin
-						state <= rw_op;
-					end
-					else begin
-						state <= idle;
 					end
 				end
 				
 				def_set_replaced: begin		
-					if(sets[set_to_replace[line_buf]].valid[line_buf]) begin
-						if(sets[set_to_replace[line_buf]].dirty[line_buf]) begin
-							state <= write_back;
-							rep_buf.addr[TAG_MSB:TAG_LSB] <= sets[set_to_replace[line_buf]].tag[line_buf];
-							rep_buf.addr[LINE_MSB:LINE_LSB] <= line_buf;
-							rep_buf.addr[OFFSET_MSB:OFFSET_LSB] <= 'h0;
-							rep_buf.data <= sets[set_to_replace[line_buf]].data[line_buf];
-						end
-						else begin
-							state <= allocate;
-						end						
-					end
-					else begin
-						state <= allocate;
+					if(sets[set_to_replace[line_buf]].valid[line_buf] 
+						&& sets[set_to_replace[line_buf]].dirty[line_buf]) begin
+						
+						rep_buf.addr[TAG_MSB:TAG_LSB] <= sets[set_to_replace[line_buf]].tag[line_buf];
+						rep_buf.addr[LINE_MSB:LINE_LSB] <= line_buf;
+						rep_buf.addr[OFFSET_MSB:OFFSET_LSB] <= 'h0;
+						rep_buf.data <= sets[set_to_replace[line_buf]].data[line_buf];
+						
 					end
 				end
 				
 				allocate: begin
 					if(mem_res.ack) begin
-						state <= idle;
 						set_to_replace[line_buf] <= set_to_replace[line_buf] + 'd1;
-					end
-					else begin
-						state <= allocate;
 					end
 				end
 			
 				write_back: begin
-					if(mem_res.ack == 'b0) begin
-						state <= write_back;
-					end
-					else begin
-						if(proc_req.flush == 'b1) begin
-							state <= flush_op;
-						end
-						else begin
-							state <= allocate;
-						end
-					end
+
 				end
 				
 				rw_op : begin
-					state <= idle;
+				
 				end
 				
 				flush_op: begin
 					if(set_count < NUMBER_OF_SETS) begin
 						if(line_count < LINES_PER_SET) begin
-							if(sets[set_count].valid[line_count]) begin
-								if(sets[set_count].dirty[line_count]) begin
-									state <= write_back;
-									rep_buf.addr[TAG_MSB:TAG_LSB] <= sets[set_count].tag[line_count];
-									rep_buf.addr[LINE_MSB:LINE_LSB] <= line_count;
-									rep_buf.addr[OFFSET_MSB:OFFSET_LSB] <= 'b0;
-									rep_buf.data <= sets[set_count].data[line_count];
-									line_count <= line_count + 'd1;
-								end
-								else begin
-									line_count <= line_count + 'd1;
-								end
+							if(sets[set_count].valid[line_count] && sets[set_count].dirty[line_count]) begin
+								rep_buf.addr[TAG_MSB:TAG_LSB] <= sets[set_count].tag[line_count];
+								rep_buf.addr[LINE_MSB:LINE_LSB] <= line_count;
+								rep_buf.addr[OFFSET_MSB:OFFSET_LSB] <= 'b0;
+								rep_buf.data <= sets[set_count].data[line_count];
+								line_count <= line_count + 'd1;
 							end
 							else begin
 								line_count <= line_count + 'd1;
@@ -235,18 +197,16 @@ module cache
 						end
 					end
 					else begin
-						state <= idle;
 						line_count <= 'd0;
 						set_count <= set_count + 'd0;
 						proc_res.flush_complete <= 'b1;
 					end
-				end
-				
+				end		
 			endcase
 		end
 	end
 	
-	/*always_ff @(posedge clk or posedge rst) begin	: WRITE_BUFFERS 
+	always_ff @(posedge clk or posedge rst) begin
 		if(rst) begin
 			state <= idle;
 		end
@@ -272,8 +232,10 @@ module cache
 				end			
 				def_set_replaced: begin		
 					if(sets[set_to_replace[line_buf]].valid[line_buf] &&
-							sets[set_to_replace[line_buf]].dirty[line_buf]) begin
-							state <= write_back;
+						sets[set_to_replace[line_buf]].dirty[line_buf]) begin
+						
+						state <= write_back;
+					end
 					else begin
 						state <= allocate;
 					end
@@ -312,25 +274,15 @@ module cache
 							if(sets[set_count].valid[line_count] && sets[set_count].dirty[line_count]) begin
 								state <= write_back;
 							end
-							else begin
-								line_count <= line_count + 'd1;
-							end
-						end
-						else begin
-							line_count <= 'd0;
-							set_count <= set_count + 'd1;
 						end
 					end
 					else begin
 						state <= idle;
-						line_count <= 'd0;
-						set_count <= set_count + 'd0;
-						proc_res.flush_complete <= 'b1;
 					end
 				end
 			endcase
 		end
-	end */
+	end 
 	
 	always_comb begin
 		case(state)
