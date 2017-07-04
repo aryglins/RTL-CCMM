@@ -1,0 +1,231 @@
+EDA Netlist Writer report for riscv_cache_top
+Mon Jun 12 14:27:05 2017
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. EDA Netlist Writer Summary
+  3. Simulation Settings
+  4. Simulation Generated Files
+  5. EDA Netlist Writer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------+
+; EDA Netlist Writer Summary                                        ;
++---------------------------+---------------------------------------+
+; EDA Netlist Writer Status ; Successful - Mon Jun 12 14:27:05 2017 ;
+; Revision Name             ; riscv_cache_top                       ;
+; Top-level Entity Name     ; riscv_cache_top                       ;
+; Family                    ; Cyclone IV GX                         ;
+; Simulation Files Creation ; Successful                            ;
++---------------------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulation Settings                                                                                                     ;
++---------------------------------------------------------------------------------------------------+---------------------+
+; Option                                                                                            ; Setting             ;
++---------------------------------------------------------------------------------------------------+---------------------+
+; Tool Name                                                                                         ; QuestaSim (Verilog) ;
+; Generate netlist for functional simulation only                                                   ; Off                 ;
+; Time scale                                                                                        ; 1 ps                ;
+; Truncate long hierarchy paths                                                                     ; Off                 ;
+; Map illegal HDL characters                                                                        ; Off                 ;
+; Flatten buses into individual nodes                                                               ; Off                 ;
+; Maintain hierarchy                                                                                ; Off                 ;
+; Bring out device-wide set/reset signals as ports                                                  ; Off                 ;
+; Enable glitch filtering                                                                           ; Off                 ;
+; Do not write top level VHDL entity                                                                ; Off                 ;
+; Disable detection of setup and hold time violations in the input registers of bi-directional pins ; Off                 ;
+; Architecture name in VHDL output netlist                                                          ; structure           ;
+; Generate third-party EDA tool command script for RTL functional simulation                        ; Off                 ;
+; Generate third-party EDA tool command script for gate-level simulation                            ; Off                 ;
++---------------------------------------------------------------------------------------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                       ;
++--------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                  ;
++--------------------------------------------------------------------------------------------------+
+; C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top_7_1200mv_85c_slow.vo     ;
+; C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top_min_1200mv_0c_fast.vo    ;
+; C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top.vo                       ;
+; C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top_7_1200mv_85c_v_slow.sdo  ;
+; C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top_min_1200mv_0c_v_fast.sdo ;
+; C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top_v.sdo                    ;
++--------------------------------------------------------------------------------------------------+
+
+
++-----------------------------+
+; EDA Netlist Writer Messages ;
++-----------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit EDA Netlist Writer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+    Info: Processing started: Mon Jun 12 14:26:41 2017
+Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off riscv_cache_top -c riscv_cache_top
+Info (204001): Port "mrq_data[1][0]" is changed into "mrq_data_1_0" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][1]" is changed into "mrq_data_1_1" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][2]" is changed into "mrq_data_1_2" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][3]" is changed into "mrq_data_1_3" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][4]" is changed into "mrq_data_1_4" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][5]" is changed into "mrq_data_1_5" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][6]" is changed into "mrq_data_1_6" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][7]" is changed into "mrq_data_1_7" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][8]" is changed into "mrq_data_1_8" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][9]" is changed into "mrq_data_1_9" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][10]" is changed into "mrq_data_1_10" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][11]" is changed into "mrq_data_1_11" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][12]" is changed into "mrq_data_1_12" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][13]" is changed into "mrq_data_1_13" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][14]" is changed into "mrq_data_1_14" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][15]" is changed into "mrq_data_1_15" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][16]" is changed into "mrq_data_1_16" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][17]" is changed into "mrq_data_1_17" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][18]" is changed into "mrq_data_1_18" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][19]" is changed into "mrq_data_1_19" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][20]" is changed into "mrq_data_1_20" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][21]" is changed into "mrq_data_1_21" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][22]" is changed into "mrq_data_1_22" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][23]" is changed into "mrq_data_1_23" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][24]" is changed into "mrq_data_1_24" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][25]" is changed into "mrq_data_1_25" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][26]" is changed into "mrq_data_1_26" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][27]" is changed into "mrq_data_1_27" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][28]" is changed into "mrq_data_1_28" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][29]" is changed into "mrq_data_1_29" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][30]" is changed into "mrq_data_1_30" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[1][31]" is changed into "mrq_data_1_31" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][0]" is changed into "mrq_data_0_0" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][1]" is changed into "mrq_data_0_1" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][2]" is changed into "mrq_data_0_2" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][3]" is changed into "mrq_data_0_3" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][4]" is changed into "mrq_data_0_4" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][5]" is changed into "mrq_data_0_5" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][6]" is changed into "mrq_data_0_6" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][7]" is changed into "mrq_data_0_7" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][8]" is changed into "mrq_data_0_8" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][9]" is changed into "mrq_data_0_9" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][10]" is changed into "mrq_data_0_10" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][11]" is changed into "mrq_data_0_11" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][12]" is changed into "mrq_data_0_12" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][13]" is changed into "mrq_data_0_13" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][14]" is changed into "mrq_data_0_14" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][15]" is changed into "mrq_data_0_15" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][16]" is changed into "mrq_data_0_16" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][17]" is changed into "mrq_data_0_17" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][18]" is changed into "mrq_data_0_18" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][19]" is changed into "mrq_data_0_19" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][20]" is changed into "mrq_data_0_20" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][21]" is changed into "mrq_data_0_21" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][22]" is changed into "mrq_data_0_22" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][23]" is changed into "mrq_data_0_23" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][24]" is changed into "mrq_data_0_24" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][25]" is changed into "mrq_data_0_25" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][26]" is changed into "mrq_data_0_26" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][27]" is changed into "mrq_data_0_27" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][28]" is changed into "mrq_data_0_28" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][29]" is changed into "mrq_data_0_29" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][30]" is changed into "mrq_data_0_30" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrq_data[0][31]" is changed into "mrq_data_0_31" because it's a member of 2-D array port "mrq_data"
+Info (204001): Port "mrs_data[1][0]" is changed into "mrs_data_1_0" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][1]" is changed into "mrs_data_1_1" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][2]" is changed into "mrs_data_1_2" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][3]" is changed into "mrs_data_1_3" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][4]" is changed into "mrs_data_1_4" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][5]" is changed into "mrs_data_1_5" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][6]" is changed into "mrs_data_1_6" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][7]" is changed into "mrs_data_1_7" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][8]" is changed into "mrs_data_1_8" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][9]" is changed into "mrs_data_1_9" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][10]" is changed into "mrs_data_1_10" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][11]" is changed into "mrs_data_1_11" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][12]" is changed into "mrs_data_1_12" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][13]" is changed into "mrs_data_1_13" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][14]" is changed into "mrs_data_1_14" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][15]" is changed into "mrs_data_1_15" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][16]" is changed into "mrs_data_1_16" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][17]" is changed into "mrs_data_1_17" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][18]" is changed into "mrs_data_1_18" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][19]" is changed into "mrs_data_1_19" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][20]" is changed into "mrs_data_1_20" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][21]" is changed into "mrs_data_1_21" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][22]" is changed into "mrs_data_1_22" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][23]" is changed into "mrs_data_1_23" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][24]" is changed into "mrs_data_1_24" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][25]" is changed into "mrs_data_1_25" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][26]" is changed into "mrs_data_1_26" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][27]" is changed into "mrs_data_1_27" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][28]" is changed into "mrs_data_1_28" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][29]" is changed into "mrs_data_1_29" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][30]" is changed into "mrs_data_1_30" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[1][31]" is changed into "mrs_data_1_31" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][0]" is changed into "mrs_data_0_0" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][1]" is changed into "mrs_data_0_1" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][2]" is changed into "mrs_data_0_2" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][3]" is changed into "mrs_data_0_3" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][4]" is changed into "mrs_data_0_4" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][5]" is changed into "mrs_data_0_5" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][6]" is changed into "mrs_data_0_6" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][7]" is changed into "mrs_data_0_7" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][8]" is changed into "mrs_data_0_8" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][9]" is changed into "mrs_data_0_9" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][10]" is changed into "mrs_data_0_10" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][11]" is changed into "mrs_data_0_11" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][12]" is changed into "mrs_data_0_12" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][13]" is changed into "mrs_data_0_13" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][14]" is changed into "mrs_data_0_14" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][15]" is changed into "mrs_data_0_15" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][16]" is changed into "mrs_data_0_16" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][17]" is changed into "mrs_data_0_17" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][18]" is changed into "mrs_data_0_18" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][19]" is changed into "mrs_data_0_19" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][20]" is changed into "mrs_data_0_20" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][21]" is changed into "mrs_data_0_21" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][22]" is changed into "mrs_data_0_22" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][23]" is changed into "mrs_data_0_23" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][24]" is changed into "mrs_data_0_24" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][25]" is changed into "mrs_data_0_25" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][26]" is changed into "mrs_data_0_26" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][27]" is changed into "mrs_data_0_27" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][28]" is changed into "mrs_data_0_28" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][29]" is changed into "mrs_data_0_29" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][30]" is changed into "mrs_data_0_30" because it's a member of 2-D array port "mrs_data"
+Info (204001): Port "mrs_data[0][31]" is changed into "mrs_data_0_31" because it's a member of 2-D array port "mrs_data"
+Info (204019): Generated file riscv_cache_top_7_1200mv_85c_slow.vo in folder "C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file riscv_cache_top_min_1200mv_0c_fast.vo in folder "C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file riscv_cache_top.vo in folder "C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file riscv_cache_top_7_1200mv_85c_v_slow.sdo in folder "C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file riscv_cache_top_min_1200mv_0c_v_fast.sdo in folder "C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file riscv_cache_top_v.sdo in folder "C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/" for EDA simulation tool
+Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 719 megabytes
+    Info: Processing ended: Mon Jun 12 14:27:06 2017
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:16
+
+

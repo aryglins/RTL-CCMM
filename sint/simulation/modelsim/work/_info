@@ -1,0 +1,245 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/Workspace/TG/cache_mem_sv/sint/simulation/modelsim
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+VmTcmGXzg`4hD6=dQAg2SM1
+Z1 04 13 4 work cache_tb_sint fast 0
+=1-f0761ce25c94-593ec8e6-1be-3ccc
+o-quiet -auto_acc_if_foreign -work work -L altera_mf -L altera_mf_ver -L cycloneivgx_ver -L lpm_ver -L altera_ver -L sgate_ver
+n@_opt
+Z2 OL;O;10.2c;57
+Z3 dC:/Workspace/TG/cache_mem_sv/sint/simulation/modelsim
+!s110 1497286895
+T_opt1
+!s110 1497288590
+VjMUXf<CEV9kQmnzMh4nV?0
+R1
+=1-f0761ce25c94-593ecf83-bc-1dc8
+o-quiet -auto_acc_if_foreign -work work -L altera_mf -L altera_mf_ver -L cycloneivgx_ver -L lpm_ver -L altera_ver -L sgate_ver +acc
+n@_opt1
+R2
+Xcache_structs_def
+Z4 DXx6 sv_std 3 std 0 22 `a<MJET1=lN@jzbA7kHm;1
+I]HXZk5DVeUL4?Pi3eV7WP2
+V]HXZk5DVeUL4?Pi3eV7WP2
+S1
+Z5 dC:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim
+w1497286349
+8C:/Workspace/TG/riscv_cache_sv/src/cache_structs_def.sv
+FC:/Workspace/TG/riscv_cache_sv/src/cache_structs_def.sv
+L0 2
+Z6 OL;L;10.2c;57
+r1
+31
+Z7 o-work work -sv -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 7BU1B8n9Ok>i4V4E0fnz:0
+!s90 -reportprogress|300|-work|work|-vopt|-sv|C:/Workspace/TG/riscv_cache_sv/src/cache_structs_def.sv|
+!s110 1497286852
+!s108 1497286852.908000
+!s107 C:/Workspace/TG/riscv_cache_sv/src/cache_structs_def.sv|
+!i10b 1
+!s85 0
+!i111 0
+vcache_tb_sint
+R4
+Z8 DXx4 work 17 cache_structs_def 0 22 ]HXZk5DVeUL4?Pi3eV7WP2
+DXx4 work 21 cache_tb_sint_sv_unit 0 22 LOa><NicAhGC3:1WVSi?H3
+Z9 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+31
+IF>9H;Kdi@8JP0>W1Y]?T93
+S1
+R5
+Z10 w1497286880
+Z11 8C:/Workspace/TG/riscv_cache_sv/src/cache_tb_sint.sv
+Z12 FC:/Workspace/TG/riscv_cache_sv/src/cache_tb_sint.sv
+L0 10
+R6
+Z13 !s108 1497286883.928000
+Z14 !s107 C:/Workspace/TG/riscv_cache_sv/src/cache_tb_sint.sv|
+Z15 !s90 -reportprogress|300|-work|work|-vopt|-sv|C:/Workspace/TG/riscv_cache_sv/src/cache_tb_sint.sv|
+R7
+!s105 cache_tb_sint_sv_unit
+!s100 _C^]mGbD;c=JMOXcTGD@d2
+!s85 0
+!i10b 1
+!i111 0
+Xcache_tb_sint_sv_unit
+R4
+R8
+VLOa><NicAhGC3:1WVSi?H3
+r1
+31
+ILOa><NicAhGC3:1WVSi?H3
+S1
+R5
+R10
+R11
+R12
+L0 8
+R6
+R13
+R14
+R15
+R7
+!s100 5M8;55CG`0Nhke;=JOE<53
+!s85 0
+!i10b 1
+!i103 1
+!i111 0
+vmem_ctrl
+R4
+R8
+DXx4 work 16 mem_ctrl_sv_unit 0 22 ?TY3X0LgWD[2Pk:M7PS[a0
+R9
+r1
+31
+I8?[j@X=>aZe3j7Kln=Eg?1
+S1
+R5
+Z16 w1496808471
+Z17 8C:/Workspace/TG/riscv_cache_sv/src/mem_ctrl.sv
+Z18 FC:/Workspace/TG/riscv_cache_sv/src/mem_ctrl.sv
+L0 10
+R6
+Z19 !s108 1497283907.306000
+Z20 !s107 C:/Workspace/TG/riscv_cache_sv/src/mem_ctrl.sv|
+Z21 !s90 -reportprogress|300|-work|work|-vopt|-sv|C:/Workspace/TG/riscv_cache_sv/src/mem_ctrl.sv|
+R7
+!s100 lYajXik]m92OZOJm69OPm3
+!s105 mem_ctrl_sv_unit
+!s85 0
+!i10b 1
+!i111 0
+Xmem_ctrl_sv_unit
+R4
+R8
+V?TY3X0LgWD[2Pk:M7PS[a0
+r1
+31
+I?TY3X0LgWD[2Pk:M7PS[a0
+S1
+R5
+R16
+R17
+R18
+L0 8
+R6
+R19
+R20
+R21
+R7
+!s100 V4GX6oI>NCD_akPi<7KQC3
+!s85 0
+!i10b 1
+!i103 1
+!i111 0
+Eram
+Z22 w1496855380
+Z23 DPx9 altera_mf 20 altera_mf_components 0 22 0FS=zMC1[n4^oF?7o0Ni@2
+Z24 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z25 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R5
+Z26 8C:/Workspace/TG/riscv_cache_sv/src/ram.vhd
+Z27 FC:/Workspace/TG/riscv_cache_sv/src/ram.vhd
+l0
+L42
+Vck?:=]ZZn_;H=HAhLO^AT0
+Z28 OL;C;10.2c;57
+32
+Z29 !s110 1497283908
+Z30 !s108 1497283908.244000
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Workspace/TG/riscv_cache_sv/src/ram.vhd|
+Z32 !s107 C:/Workspace/TG/riscv_cache_sv/src/ram.vhd|
+Z33 o-work work -2002 -explicit
+Z34 tExplicit 1
+!s100 ^LajTXE4OFAE<^`bblhmO1
+!i10b 1
+!i111 0
+Asyn
+R23
+R24
+R25
+DEx4 work 3 ram 0 22 ck?:=]ZZn_;H=HAhLO^AT0
+l58
+L54
+VcU0K[b]ENJYDdn2PKW6ch0
+R28
+32
+R29
+R30
+R31
+R32
+R33
+R34
+!s100 XC@2`G7S4M?;AMOnDg5AE1
+!i10b 1
+!i111 0
+Ereference_ram
+Z35 w1496855511
+R23
+R24
+R25
+R5
+Z36 8C:/Workspace/TG/riscv_cache_sv/src/reference_ram.vhd
+Z37 FC:/Workspace/TG/riscv_cache_sv/src/reference_ram.vhd
+l0
+L42
+V:nZRH1>FG;OG]l2BEZfG`0
+R28
+32
+Z38 !s110 1497283909
+Z39 !s108 1497283909.026000
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Workspace/TG/riscv_cache_sv/src/reference_ram.vhd|
+Z41 !s107 C:/Workspace/TG/riscv_cache_sv/src/reference_ram.vhd|
+R33
+R34
+!s100 BHB9mgPV_jVQhRn@d4k`X2
+!i10b 1
+!i111 0
+Asyn
+R23
+R24
+R25
+DEx4 work 13 reference_ram 0 22 :nZRH1>FG;OG]l2BEZfG`0
+l58
+L54
+VPo]C5M3Ii`Lj>LBSakCaD3
+R28
+32
+R38
+R39
+R40
+R41
+R33
+R34
+!s100 ;iWA3YeNLoPL?nnT5=c?:0
+!i10b 1
+!i111 0
+vriscv_cache_top
+ID4OEZ=g>cdgoS_aTA5JL30
+R9
+R5
+w1497288419
+8C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top.vo
+FC:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top.vo
+L0 31
+R6
+r1
+31
+o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s90 -reportprogress|300|-work|work|-vopt|C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top.vo|
+!s110 1497288572
+!i10b 1
+!s100 [EY5[c3e6U8Q0E?BCLA713
+!s85 0
+!s108 1497288569.121000
+!s107 C:/Workspace/TG/riscv_cache_sv/sint/simulation/modelsim/riscv_cache_top.vo|
+!i111 0

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="riscv_cache_top">
+		<CBX_INST_ENTRY INSTANCE_NAME="|riscv_cache_top|inst_ram:inst_ram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_bd04.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at riscv_cache_top.sv(84): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at cache.sv(284): always construct contains both blocking and non-blocking assignments
