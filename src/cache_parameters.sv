@@ -51,7 +51,6 @@ package cache_parameters;
 		logic [ADDR_WIDTH-1:0] 	addr;	// Address Input
 		logic                  	cs; 	// Chip Select
 		logic                  	rw;		// Read 0/Write 1 - 
-		logic 					flush;
 		logic [WORD_WIDTH-1:0] 	data;
 	} processor_request_t;
 	

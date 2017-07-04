@@ -44,7 +44,11 @@ timeprecision 100ps;
 		rst = 1;
 		#clk_period;
 		rst = 0;
-		proc_req.flush = 'b0;
+		#clk_period;
+		
+		while(proc_res.hold_cpu == 'b1) begin
+			#clk_period;
+		end
 		
 		while(!$feof(fd)) begin		
 			
@@ -72,7 +76,7 @@ timeprecision 100ps;
 			
 			while(proc_res.hold_cpu == 'b1) begin
 			
-				if(proc_req.addr == 'h17 || mem_req.addr == 'h16) begin
+				if(proc_req.addr == 'h17c || mem_req.addr == 'h17c) begin
 					//$stop;
 				end
 				#clk_period;
@@ -83,10 +87,7 @@ timeprecision 100ps;
 			end
 			else begin
 				$display("Read %x from address %x", proc_res.data, proc_req.addr);
-			end
-			
-			#clk_period;
-		
+			end		
 		end
 		
 		/*cs = 'b1;

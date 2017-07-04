@@ -90,7 +90,6 @@ module riscv_cache_top
 				readInst = 'b1;
 				proc_req.cs = 'b0;
 				proc_req.rw = 'b0;
-				proc_req.flush = 'b0;
 				fl_complete = 0;
 				next_st <= dec_inst;
 			end
@@ -98,7 +97,6 @@ module riscv_cache_top
 			dec_inst: begin
 				proc_req.cs = 'b0;
 				proc_req.rw = 'b0;
-				proc_req.flush = 'b0;
 				fl_complete = 0;
 				
 				case(opCode)

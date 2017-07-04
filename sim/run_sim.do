@@ -19,14 +19,16 @@ sim:/cache_tb_sim/mem_res
 
 add wave -position insertpoint -divider "INTERFACE" \
 sim:/cache_tb_sim/cache1/state \
-sim:/cache_tb_sim/cache1/tag_buf \
-sim:/cache_tb_sim/cache1/line_buf \
-sim:/cache_tb_sim/cache1/offset_buf \
 sim:/cache_tb_sim/cache1/addr_tag \
 sim:/cache_tb_sim/cache1/addr_line \
 sim:/cache_tb_sim/cache1/addr_offset \
+sim:/cache_tb_sim/cache1/tag_buf \
+sim:/cache_tb_sim/cache1/line_buf \
+sim:/cache_tb_sim/cache1/offset_buf \
 sim:/cache_tb_sim/cache1/hit_array \
-sim:/cache_tb_sim/cache1/miss 
+sim:/cache_tb_sim/cache1/line_count \
+sim:/cache_tb_sim/cache1/miss \
+sim:/cache_tb_sim/cache1/sets
 
 
 run 20ns
